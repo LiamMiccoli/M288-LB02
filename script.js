@@ -1,17 +1,4 @@
-function validate() {
 
-    const usernames = ["Test", "Test2", "BMW"];
-
-
-    var username = document.getELementById("username").value;
-    var password = document.getELementById("password").value;
-    if (username == usernameJson && password == "user") {
-        alert("login succesfully");
-
-    } else {
-        alert("login failed");
-    }
-}
 
 const countdown = () => {
     //Ziel datum in Millisekunden
