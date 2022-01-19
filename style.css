@@ -488,5 +488,14 @@ ul {
     .footer-mid h3 {
         margin: 0;
     }
-
+    .preview {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+         }
+    #rndmimg {
+        object-fit: contain;
+        height: 500px;
+    }
 }

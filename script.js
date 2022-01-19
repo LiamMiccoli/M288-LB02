@@ -21,15 +21,14 @@ const countdown = () => {
     const textMinute = Math.floor((gap % hour) / minute);
     const textSecond = Math.floor((gap % minute) / second);
 
-    Number.prototype.zeroPad = function () {
-        return ('0' + this).slice(-2);
-    };
+    // Object Literal
+    const timeTotal = {second:textSecond, minute:textMinute, hour:textHour, day:textDay};
 
     //HTML Ausgeben
-    document.querySelector(".day").innerText = textDay;
-    document.querySelector(".hour").innerText = textHour.zeroPad();
-    document.querySelector(".minute").innerText = textMinute.zeroPad();
-    document.querySelector(".second").innerText = textSecond.zeroPad();
+   document.querySelector(".day").innerText = timeTotal.day;
+   document.querySelector(".hour").innerText = timeTotal.hour;
+   document.querySelector(".minute").innerText = timeTotal.minute;
+   document.querySelector(".second").innerText = timeTotal.second;
 
 
 };
@@ -37,37 +36,45 @@ const countdown = () => {
 setInterval(countdown, 1000);
 
 
-function loginButton() {
-    var x = document.getElementById("loginButton");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-    }
-}
+
 
 // Email Adresse Validation
 function validation() {
 
-    var mail = document.getElementById("mail").value;
-    var text = document.getElementById("feedback");
-    var pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+    let mail = document.getElementById("mail").value;
+    let text = document.getElementById("feedback");
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
 
     // Wenn E-Mail adresse aufbau einer Email adresse hat dann:
     if(mail.match(pattern))
     {
         text.classList.add("valid");
         text.classList.remove("invalid");
-        text.innerHTML = "<i class=\"fas fa-check check\"></i>Your E-Mail Adress is Valid.";
+        text.innerHTML = "<i class=\"fas fa-check check\"></i>Your E-Mail address is Valid.";
     }
 
     else
     {
         text.classList.add("invalid");
         text.classList.remove("valid");
-        text.innerHTML = "<i class=\"fas fa-times cross\"></i> Please Enter a Valid E-Mail Adress!";
-    }
+        text.innerHTML = "<i class=\"fas fa-times cross\"></i> Please Enter a Valid E-Mail address!";
+    }}
+
+
+// JSON
+const jsonData = {
+    "lion1": "lion-1",
+    "lion2": "lion-2",
+    "lion3": "lion-3",
+    "lion4": "lion-4",
+    "lion5": "lion-5",
+    "lion6": "lion-6",
 }
 
 
+    const values = Object.values(jsonData)
 
+    const randomValue = values[parseInt(Math.random() * values.length)]
+
+document.getElementById("rndmimg").src = "img/" + randomValue + ".png"
+document.getElementById("rndmimg").alt = "lion-sanctuary-nft-" + randomValue
